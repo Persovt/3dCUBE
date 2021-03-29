@@ -1,17 +1,53 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React, { createRef, useEffect } from "react";
+import ReactDOM from "react-dom";
+import * as THREE from "three";
+
+
+const Main = () => {
+  const ref = createRef();
+  useEffect(() => {
+    const scene = new THREE.Scene();
+  
+    const camera = new THREE.PerspectiveCamera(
+      75,
+      window.innerWidth / window.innerHeight,
+      0.1,
+      1000
+    );
+  
+    const renderer = new THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    ref.current.appendChild(renderer.domElement);
+    console.log(renderer.domElement);
+    const geometry = new THREE.BoxGeometry();
+    const material = new THREE.MeshToonMaterial();
+    const light = new THREE.HemisphereLight(0xffffbb, 0x080820, 1);
+    const cube = new THREE.Mesh(geometry, material);
+    scene.add(cube, light);
+  
+    camera.position.z = 5;
+  
+    const animate = function (event) {
+      console.log(event);
+  
+      cube.rotation.x = event.clientY * 0.01;
+      cube.rotation.y = -(event.clientX * 0.01);
+  
+      renderer.render(scene, camera);
+    };
+  
+    requestAnimationFrame(animate);
+    window.onmousemove = animate;
+  }, []);
+  return (
+    <div className="" ref={ref}></div>
+  )
+}
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+  <Main/>
+  
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
