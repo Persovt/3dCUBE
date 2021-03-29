@@ -2,10 +2,11 @@ import React, { createRef, useEffect } from "react";
 import ReactDOM from "react-dom";
 import * as THREE from "three";
 
-
+const ref = createRef();
 const Main = () => {
-  const ref = createRef();
+  
   useEffect(() => {
+    
     const scene = new THREE.Scene();
   
     const camera = new THREE.PerspectiveCamera(
