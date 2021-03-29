@@ -1519,6 +1519,18 @@
     "estree-walker" "^1.0.1"
     "picomatch" "^2.2.2"
 
+"@seregpie/three.text-sprite@^3.2.0":
+  "integrity" "sha512-ozQq7JFKGCltCvT3DG5SC77WnSJfZhYpSabhp+I1iZ9tTMxiPJqyEscmcMC+Rdxy1eYCBmZKGKBBcMLLrd5GuA=="
+  "resolved" "https://registry.npmjs.org/@seregpie/three.text-sprite/-/three.text-sprite-3.2.0.tgz"
+  "version" "3.2.0"
+  dependencies:
+    "@seregpie/three.text-texture" "^3.2.0"
+
+"@seregpie/three.text-texture@^3.2.0":
+  "integrity" "sha512-+rBfu63PolUyg6WB56SxYIIGGw7BMiFMeoj6AcxGooGs1apnudu024EMY/6dr1KnpIa9lNIwSgJETeaclgT/BQ=="
+  "resolved" "https://registry.npmjs.org/@seregpie/three.text-texture/-/three.text-texture-3.2.1.tgz"
+  "version" "3.2.1"
+
 "@sinonjs/commons@^1.7.0":
   "integrity" "sha512-sruwd86RJHdsVf/AtBoijDmUqJp3B6hF/DGC23C+JaegnDHaZyewCjoVGTdg3J0uz3Zs7NnIT05OBOmML72lQw=="
   "resolved" "https://registry.npmjs.org/@sinonjs/commons/-/commons-1.8.2.tgz"
@@ -10766,7 +10778,7 @@
   "resolved" "https://registry.npmjs.org/text-table/-/text-table-0.2.0.tgz"
   "version" "0.2.0"
 
-"three@^0.126.1":
+"three@^0.126.1", "three@>=0.113":
   "integrity" "sha512-eOEXnZeE1FDV0XgL1u08auIP13jxdN9LQBAEmlErYzMxtIIfuGIAZbijOyookALUhqVzVOx0Tywj6n192VM+nQ=="
   "resolved" "https://registry.npmjs.org/three/-/three-0.126.1.tgz"
   "version" "0.126.1"

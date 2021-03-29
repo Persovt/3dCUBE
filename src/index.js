@@ -1,15 +1,21 @@
 import React, { createRef, useEffect } from "react";
 import ReactDOM from "react-dom";
 import * as THREE from "three";
-
+import TextSprite from '@seregpie/three.text-sprite';
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 
 const ref = createRef();
-
+let obj = null;
 const Main = () => {
   useEffect(() => {
     const scene = new THREE.Scene();
-
+    const text = new TextSprite({
+      text: 'Loading',
+      fontFamily: 'Arial, Helvetica, sans-serif',
+      fontSize: 5,
+      color: '#ffbbff',
+    });
+    scene.add(text);
     const camera = new THREE.PerspectiveCamera(
       45,
       window.innerWidth / window.innerHeight,
@@ -27,8 +33,9 @@ const Main = () => {
     scene.add(light);
 
     let loader = new GLTFLoader();
-    let obj = null;
+
     loader.load("3d/scene.gltf", function (gltf) {
+      scene.remove(text)
       obj = gltf;
       scene.add(obj.scene);
     });
